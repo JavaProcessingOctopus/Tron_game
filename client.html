@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+        <script>
+            io = io.connect()
+            
+			// !!! les io.emit seront probablement placer ailleur dans la page !!!
+			io.emit('ready', /*'Name'*/) //cette fonction doit etre utiliser quand submit est clicker. Remplace name par le name choisis
+            
+			io.emit('change-direction', /*direction*/) ////cette fonction doit etre utiliser quand une toucher directionnel est appuyer. Remplace name par direction par "up", "down", "left" ou "right"
+
+            io.on('connected', function(data){
+				//code a exécuter quand le serveur dit 'connected'
+			})
+            
+            io.on('update', function(data){
+					//construire canvas avec donnée
+					// les donné serons en JSON et seron un ensemble de coordonnée + nom
+				})
+
+            io.on('lost', function(){
+            	//code a exécuter quand le joeur a perdus
+            })
+
+            io.on('win', function(){
+            	//code a exécuter quand le joeur a gagner
+            })
+
+            io.on('end', function(){
+            	//code a exécuter quand le jeu est finis
+            })
+        </script>
+        <link href="client.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1>Tron Game</h1>
+        <form>
+            <h2>Choisis ta couleur</h2>
+            <input type="color" name="color" value="Choisis ta couleur"/>
+            <h2>Choisis ton pseudo</h2>
+            <input type="text" name="name" placeholder="Pseudo" maxlength="12"/>
+            <input type="submit" value="jouer"/>
+        </form>
+        <canvas></canvas>
+    </body>
+</html>
