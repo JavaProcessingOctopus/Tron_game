@@ -1,11 +1,11 @@
-var Coordonnee = require("Coordonnee.js");
+var Coordonnee = require("./Coordonnee.js");
 var Joueur = require('./Joueur.js');
 
 var joueurs = [];
 var canvas = [];
 var active = false;
-var HAUTEUR = 10;
-var LARGEUR = 10;
+var HAUTEUR = 40;
+var LARGEUR = 70;
 		
 var start = function () {	//
 	active = true;
@@ -56,9 +56,10 @@ var checkName = function (joueur) { //vérifie si un nom est libre et renvois un
         if (joueurs[i] === joueur) {
             var lastCar = joueur.charAt(joueur.length - 1);
             if (!isNaN(lastCar)) {
-                //put lastCar++ at joueur.charAt(joueur.length - 1)
+                lastCar++;
+                joueur = joueur.slice(0, joueur.length - 1).concat(lastCar);//put lastCar++ at joueur.charAt(joueur.length - 1)
             } else {
-                //put 1 at the end of joueur
+                joueur = joueur.concat(1);    //put 1 at the end of joueur
             }
         }
     }
@@ -75,8 +76,9 @@ var addJoueur = function (joueur) {	 //ajoute le nouveau joeur a this.joueurs, d
     return joueur;
 };
 		
-var changeDirections = function (nameAndDirection) {
-    var nom, direction;  // a initialiser en fonction de data recu
+var changeDirections = function (name, direction) {
+    var nom = nom;
+    var direction = direction;  // a initialiser en fonction de data recu
             
     for (i = 0; i < joueurs.length; i++) {
         if (joueurs[i].nom === nom) {
