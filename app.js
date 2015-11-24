@@ -1,9 +1,8 @@
 app = require('express.io')()
 app.http().io()
-ModuleJeu = require('./Jeu.js')
-Jeu = new ModuleJeu();
+ModuleJeu = require('./Jeu.js');
 
-plBff = []; // buffer de joueurs à rajouter au jeu
+plBff = []; // buffer de joueurs ? rajouter au jeu
 dirBff = []; //buffer de joeur + direction
 
 //donner la page html au joueur
@@ -23,13 +22,13 @@ app.io.route('change-direction', function(req){
     //ajoute le nom du joeur avec sa direction dans dirBff
 })
 
-/*while(true){ //boucle du jeu, donne les commande au jeux et contacte les joeurs
+function live(){ //boucle du jeu, donne les commande au jeux et contacte les joeurs
     while(plBff.length>0){ //ajoute les joueur
         Jeu.addJoueur(plBff.pop());
     }
 
     if(Jeu.joueurs.length>1 && !Jeu.active){ //si on a plus d'un joueur et le jeu n'est pas actif
-        Jeu.start(); //on démmarre le jeu
+        Jeu.start(); //on d?mmarre le jeu
     }
     if(Jeu.active){
         while(plBff.length>0){ //change les direction des joeurs
@@ -43,9 +42,11 @@ app.io.route('change-direction', function(req){
         if(Jeu.end()){
             var win = jeu.winner(); //on sauvegarde le gagnant qu'on contactera si il y en a un
             //...
-            Jeu.reset();//on prépare le jeux pour la prochaine partis
+            Jeu.reset();//on pr?pare le jeux pour la prochaine partis
         }
     }
-}*/
+    setTimeout(live, 500);
+}
+
 
 app.listen(7076)
