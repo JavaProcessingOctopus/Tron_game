@@ -11,7 +11,7 @@ var start = function () {	//
 	active = true;
 };
 		
-var coorLibre = function () {
+var coorLibre = function () {//donne une coordonne libre dans le cnavas
     if (typeof(canvas[2][2]) !== 'undefined') { //exemple de test pour une coordonnée prefférer de dépard
         return new Coordonnee(2, 2);
     }
@@ -82,7 +82,7 @@ var changeDirections = function (name, direction) {
             
     for (i = 0; i < joueurs.length; i++) {
         if (joueurs[i].nom === nom) {
-            joueurs[i].nom.changeDirection(direction);
+            joueurs[i].changeDirection(direction);
             break;
         }
     }

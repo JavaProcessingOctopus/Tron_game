@@ -1,48 +1,70 @@
 <!DOCTYPE html>
 <html>
     <head>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/myscript.js" type="text/javascript"></script>
         <script>
             io = io.connect()
             
 			// !!! les io.emit seront probablement placer ailleur dans la page !!!
-			io.emit('ready', /*'Name'*/) //cette fonction doit etre utiliser quand submit est clicker. Remplace name par le name choisis
+			//io.emit('ready', /*'Name'*/) //cette fonction doit etre utiliser quand submit est clicker. Remplace name par le name choisis
             
-			io.emit('change-direction', /*direction*/) ////cette fonction doit etre utiliser quand une toucher directionnel est appuyer. Remplace name par direction par "up", "down", "left" ou "right"
+		//	io.emit('change-direction', /*direction*/) ////cette fonction doit etre utiliser quand une toucher directionnel est appuyer. Remplace name par direction par "up", "down", "left" ou "right"
 
-            io.on('connected', function(data){
+          //  io.on('connected', function(data){
 				//code a exécuter quand le serveur dit 'connected'
-			})
+                //si on a besoin on change le nom data=nom joueur
+		//	})
             
-            io.on('update', function(data){
+         //   io.on('update', function(data){
 					//construire canvas avec donnée
 					// les donné serons en JSON et seron un ensemble de coordonnée + nom
-				})
+		//		})
 
-            io.on('lost', function(){
-            	//code a exécuter quand le joeur a perdus
-            })
+          //  io.on('lost', function(data){
+            	//verifier son propre nom est present
+          //  })
 
-            io.on('win', function(){
-            	//code a exécuter quand le joeur a gagner
-            })
+         //   io.on('win', function(data){
+            	//recois le nom du gagnant
+         //   })
 
-            io.on('end', function(){
+           // io.on('end', function(){
             	//code a exécuter quand le jeu est finis
-            })
+          //  })
         </script>
-        <link href="client.css" rel="stylesheet"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet"/>
     </head>
     <body>
-        <h1>Tron Game</h1>
-        <form>
-            <h2>Choisis ta couleur</h2>
-            <input type="color" name="color" value="Choisis ta couleur"/>
-            <h2>Choisis ton pseudo</h2>
-            <input type="text" name="name" placeholder="Pseudo" maxlength="12"/>
-            <input type="submit" value="jouer"/>
-        </form>
-        <canvas></canvas>
+        <h1>Jeu Tron</h1>
+        <main>
+            <section id="block_jeu">
+                <section id="info_joueur">
+                    <p>Joueur Online:</p>
+                    <ul class="joueur">
+                        <li style="color: red;">Joueur 1</li>
+                        <li style="color: blue; text-decoration: line-through; opacity:0.5;">Joueur 2</li>
+                    </ul>
+                </section>  
+                <canvas id="canvas" width="700" height="400"></canvas>
+                <div class="clear"></div>
+            </section>
+            <aside>
+                <form>
+                 <input type="text" placeholder="Votre Nom" id="player_name" title="Entrez votre nom" pattern="[A-Za-zА-Яа-яЁё]"/>
+                <input type="color" value="red" id="player_color" title="Choissisez votre couleur"/>
+                <input type="submit"  href="#" value="Start Game" id="btn_start"/>
+                    
+                </form>
+               
+            </aside>
+            <section id="block_loader">
+                    <p id="nb_progress">10</p>
+                    <div id="loader"></div>
+                    
+    
+            </section>
+        </main>
     </body>
 </html>
