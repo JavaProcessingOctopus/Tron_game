@@ -27,8 +27,6 @@ h1{
 				 0 5px 10px rgba(0, 0, 0, 0.25),
 				 0 10px 10px rgba(0, 0, 0, 0.2),
 				 0 20px 20px rgba(0, 0, 0, 0.15);
-
-
 }
 
 #info_joueur p {
@@ -58,6 +56,7 @@ main {
     background-image: -ms-linear-gradient(top, #f6f6f6, #eae8e8);
     background-image: -o-linear-gradient(top, #f6f6f6, #eae8e8);
     background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+    position: relative;
 }
 #info_joueur{
     width: 150px;
@@ -80,6 +79,7 @@ main {
 .joueur{
     padding: 0;
 	list-style: none;
+    display: none;
 }
 .joueur li {
 	border-bottom: 1px solid #111;
@@ -97,11 +97,11 @@ aside{
 }
 #block_loader{
     position: relative;
-    width: 206px;
-    height: 206px;
-    left: 40%;
-    top: 25%;
-    display: none;
+    width: 106px;
+    height: 106px;
+    left: 13%;
+    top: 20%;
+    display: block;
 }
 #player_name{
     width: 150px;
@@ -176,8 +176,8 @@ aside{
 
 #loader {
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto;
     border-radius: 50%;
     border: 3px solid transparent;
@@ -242,5 +242,141 @@ aside{
         }
     }
 
+    #restart_menu{
+        width: 300px;
+        height: auto;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        display: none;
 
+    }
+    #start_menu{
 
+    }
+
+    .restart_menu_button{
+        margin-top: 10px;
+        text-align: center;
+        color: #fff;
+        text-align: center;
+        font: bold 40px Georgia, Helvetica, Arial, sans-serif;
+        text-shadow: 0 1px 0 #cccccc,
+                    0 2px 0 #c9c9c9,
+                    0 3px 0 #bbbbbb,
+                    0 4px 0 #b9b9b9,
+                    0 5px 0 #aaaaaa,
+                    0 6px 1px rgba(0, 0, 0, 0.1),
+                    0 0 5px rgba(0, 0, 0, 0.1),
+                    0 1px 3px rgba(0, 0, 0, 0.3),
+                    0 3px 5px rgba(0, 0, 0, 0.2),
+                    0 5px 10px rgba(0, 0, 0, 0.25),
+                    0 10px 10px rgba(0, 0, 0, 0.2),
+                    0 20px 20px rgba(0, 0, 0, 0.15);
+        display: block;
+        cursor: pointer;
+    }
+    .restart_menu_button:hover {
+         color: #149CF9;
+     }
+    .restart_menu_button:active {
+        text-shadow: 0 1px 0 #cccccc,
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbbbbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaaaaa,
+        0 6px 1px rgba(0, 0, 0, 0.1),
+        0 0 5px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.3);
+        color: #6EA7E5;
+    }
+    #message_err{
+        position: absolute;
+        top: 23%;
+        right:18%;
+        font: bold 50px Tahoma;
+        text-align:center;
+        color:#FF5F97;
+        animation:blur_err 3s;
+        text-shadow:0px 0px 5px #fff,
+        0px 0px 7px #fff;
+        display: none;
+    }
+@keyframes blur_err{
+    from{
+        text-shadow:0px 0px 10px #fff,
+        0px 0px 10px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 50px #fff,
+        0px 0px 50px #fff,
+        0px 0px 50px #FF1B6B,
+        0px 0px 150px #FF1B6B,
+        0px 10px 100px #FF1B6B,
+        0px 10px 70px #FF1B6B,
+        0px 10px 60px #FF1B6B,
+        0px 10px 50px #FF1B6B;}
+}
+
+#message_win{
+    position: absolute;
+    top: 23%;
+    right:18%;
+    font: bold 50px Tahoma;
+    text-align:center;
+    color:#417DFF;
+    animation:blur_win 3s;
+    text-shadow:0px 0px 5px #fff,
+    0px 0px 7px #fff;
+    display: none;
+}
+@keyframes blur_win{
+    from{
+        text-shadow:0px 0px 10px #fff,
+        0px 0px 10px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 25px #fff,
+        0px 0px 50px #fff,
+        0px 0px 50px #fff,
+        0px 0px 50px #7DC9FF,
+        0px 0px 150px #7DC9FF,
+        0px 10px 100px #7DC9FF,
+        0px 10px 70px #7DC9FF,
+        0px 10px 60px #7DC9FF,
+        0px 10px 50px #FF1B6B;}
+}
+#get_menu{
+    position: absolute;
+    top: 23%;
+    right:25%;
+    font: bold 50px Tahoma;
+    text-align:center;
+    color: rgba(17, 17, 17, 0.57);
+    opacity: 0.5;
+    cursor: pointer;
+    display: none;
+}
+#get_menu:hover{
+    color: #209cff;
+opacity: 1;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+0px 8px 13px rgba(0,0,0,0.1),
+0px 18px 23px rgba(0,0,0,0.1);
+
+}
+#get_menu:active{
+    background-color: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+
+}
